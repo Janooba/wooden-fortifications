@@ -1,0 +1,16 @@
+﻿{
+  "ingredientPattern": "S,W",
+  "width": 1,
+  "height": 2,
+  "ingredients":
+  {
+    "S": { "type": "item", "code": "game:spearhead-copper"},
+    "W": { "type": "block", "code": "archersstake-north"}
+  },
+  "output":
+  { 
+    "type": "block", 
+    "code": "archerscopperstake-north",
+    "quantity": 1
+  }
+}

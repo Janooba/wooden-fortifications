@@ -19,8 +19,12 @@ namespace woodenfortifications
         {
             var blockEntity = world.BlockAccessor.GetBlockEntity(pos) as BlockEntity_Spike;
             var stacks = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
-            
-            if (blockEntity == null) return stacks;
+
+            if (blockEntity == null)
+            {
+                stacks[0].Attributes.SetInt("health", Attributes["hit_points"].AsInt(25));
+                return stacks;
+            }
             
             if (blockEntity.Health <= 0)
                 return Array.Empty<ItemStack>();

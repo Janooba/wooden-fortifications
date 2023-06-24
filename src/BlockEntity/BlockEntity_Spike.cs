@@ -6,7 +6,7 @@ namespace woodenfortifications
 {
     public class BlockEntity_Spike : BlockEntity
     {
-        public int Health { get; private set; } = -1;
+        public int Health { get; private set; }
         private int _maxHealth;
 
         public override void Initialize(ICoreAPI api)
@@ -14,7 +14,7 @@ namespace woodenfortifications
             base.Initialize(api);
             
             _maxHealth = Block?.Attributes["hit_points"].AsInt(25) ?? 25;
-            if (Health == -1) Health = _maxHealth;
+            if (Health == 0) Health = _maxHealth;
         }
 
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
@@ -42,7 +42,7 @@ namespace woodenfortifications
             var clonedItemstack = byItemStack?.Clone();
             if (clonedItemstack == null) return;
             
-            Health = clonedItemstack.Attributes.GetInt("health");
+            Health = clonedItemstack.Attributes.GetInt("health", _maxHealth);
             
             MarkDirty(true);
         }

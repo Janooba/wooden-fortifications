@@ -77,18 +77,16 @@
   <ItemGroup>
     <Folder Include="assets\" />
     <Folder Include="src\" />
+    <Content Include="assets\woodfortifications\blocktypes\archerscopperstake.json" />
     <Content Include="assets\woodfortifications\blocktypes\archersstake.json" />
     <Content Include="assets\woodfortifications\blocktypes\palisadewall.json" />
     <Content Include="assets\woodfortifications\blocktypes\palisadewalkway.json" />
     <Content Include="assets\woodfortifications\lang\en.json" />
+    <Content Include="assets\woodfortifications\recipes\grid\archerscopperstake.json" />
     <Content Include="assets\woodfortifications\recipes\grid\archersstake.json" />
     <Content Include="assets\woodfortifications\recipes\grid\palisadewall.json" />
     <Content Include="assets\woodfortifications\recipes\grid\palisadewall_walkway.json" />
-    <Content Include="assets\woodfortifications\shapes\block\archersstake_copper.json" />
-    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant1.json" />
-    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant2.json" />
-    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant3.json" />
-    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant4.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archerscopperstake.json" />
     <Content Include="assets\woodfortifications\shapes\block\palisade1.json" />
     <Content Include="assets\woodfortifications\shapes\block\palisade1_walkway.json" />
     <Content Include="assets\woodfortifications\shapes\block\palisade2.json" />

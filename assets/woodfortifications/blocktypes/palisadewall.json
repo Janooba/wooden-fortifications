@@ -1,6 +1,5 @@
 ﻿{
   "code": "palisadewall",
-  "class": "BlockBehaviorNWOrientable",
   "behaviors": [
     {
       "name": "HorizontalOrientable"

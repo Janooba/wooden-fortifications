@@ -1,6 +1,5 @@
 ﻿{
   "code": "palisadewalkway",
-  "class": "BlockBehaviorNWOrientable",
   "behaviors": [
     {
       "name": "HorizontalOrientable"

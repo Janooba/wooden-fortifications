@@ -15,7 +15,7 @@
     "damage": 2,
     "hit_points": 25
   },
-  "creativeinventory": { "general": ["*"] },
+  "creativeinventory": { "general": ["archersstake-north"] },
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {

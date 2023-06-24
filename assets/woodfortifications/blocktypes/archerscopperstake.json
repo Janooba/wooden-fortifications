@@ -1,0 +1,44 @@
+﻿{
+  "code": "archerscopperstake",
+  "class": "Block_ArchersStake",
+  "entityClass": "BlockEntity_Spike",
+  "behaviors": [
+    { "name": "HorizontalOrientable" }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "attributes": {
+    "damage": 3,
+    "hit_points": 60
+  },
+  "creativeinventory": { "general": ["archerscopperstake-north"] },
+  "blockmaterial": "Wood",
+  "drawtype": "json",
+  "shapeByType": {
+    "*-north": { "base": "block/archerscopperstake", "rotateY": 0},
+    "*-east": { "base": "block/archerscopperstake", "rotateY": 270},
+    "*-west": { "base": "block/archerscopperstake", "rotateY": 90},
+    "*-south": { "base": "block/archerscopperstake", "rotateY": 180}
+  },
+  "collisionSelectionBox": { "x1": 0.25, "y1": 0, "z1": 0, "x2": 0.9375, "y2": 0.7, "z2": 1,
+    "rotateYByType": {
+      "*-north": 270,
+      "*-east": 180,
+      "*-south": 90,
+      "*-west": 0
+    }
+  },
+  "sidesolid": { "all": false },
+  "sideopaque": { "all": false },
+  "sideao": { "all": true },
+  "emitsideao": { "all": false },
+  "resistance": 2,
+  "sounds": {
+    "place": "game:block/wood",
+    "walk": "game:walk/wood"
+  }
+}
