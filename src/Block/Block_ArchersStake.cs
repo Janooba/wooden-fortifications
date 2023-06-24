@@ -2,38 +2,37 @@
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
-using Vintagestory.GameContent;
 
 namespace woodenfortifications
 {
-    public class ArchersStake : Block
+    public class Block_ArchersStake : Block
     {
+        private int _damage;
 
-        
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
+            _damage = Attributes["damage"].AsInt(2);
         }
 
         public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
         {
-            if (_remainingHits <= 0) return Array.Empty<ItemStack>();
-            return base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
-        }
+            var blockEntity = world.BlockAccessor.GetBlockEntity(pos) as BlockEntity_Spike;
+            var stacks = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
+            
+            if (blockEntity == null) return stacks;
+            
+            if (blockEntity.Health <= 0)
+                return Array.Empty<ItemStack>();
 
-        public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
-        {
-            string desc = base.GetPlacedBlockInfo(world, pos, forPlayer);
-
-            desc += $"({_remainingHits}/{_hitPoints})";
-
-            return desc;
+            stacks[0].Attributes.SetInt("health", blockEntity.Health);
+            return stacks;
         }
 
         public override void OnEntityCollide(IWorldAccessor world, Entity entity, BlockPos pos, BlockFacing facing, Vec3d collideSpeed, bool isImpact)
         {
             if (!isImpact && entity is EntityPlayer) return;
-            
+
             var blockDirection = BlockFacing.FromCode(LastCodePart());
 
             if (facing == blockDirection.Opposite || facing == BlockFacing.UP)
@@ -45,26 +44,14 @@ namespace woodenfortifications
                             Source = EnumDamageSource.Block, SourceBlock = this,
                             Type = EnumDamageType.PiercingAttack,
                             SourcePos = pos.ToVec3d()
-                        }, _damageToDeal);
+                        }, _damage);
 
                     if (damaged)
                     {
-                        DamageThis(world, pos);
+                        (world.BlockAccessor.GetBlockEntity(pos) as BlockEntity_Spike)?.TakeDamage(1);
                     }
                 }
             }
-        }
-
-        private void DamageThis(IWorldAccessor world, BlockPos pos)
-        {
-            _remainingHits--;
-            if (_remainingHits <= 0)
-                Break(world, pos);
-        }
-        
-        private void Break(IWorldAccessor world, BlockPos pos)
-        {
-            world.BlockAccessor.BreakBlock(pos, null, 0);  
         }
     }
 }

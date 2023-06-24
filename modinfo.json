@@ -4,7 +4,7 @@
   "name": "woodenfortifications",
   "authors": ["Janooba"],
   "description": "Primitive defences for your home sweet home",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "game": "1.18.5"
   }

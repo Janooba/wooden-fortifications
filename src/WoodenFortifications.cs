@@ -7,7 +7,9 @@ namespace woodenfortifications
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterBlockClass("ArchersStake", typeof(ArchersStake));
+            api.RegisterBlockClass("Block_ArchersStake", typeof(Block_ArchersStake));
+            
+            api.RegisterBlockEntityClass("BlockEntity_Spike", typeof(BlockEntity_Spike));
         }
     }
 }

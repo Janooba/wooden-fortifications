@@ -1,11 +1,9 @@
 ﻿{
   "code": "archersstake",
   "class": "Block_ArchersStake",
-  "entityClass": "BlockEntity_ArchersStake",
+  "entityClass": "BlockEntity_Spike",
   "behaviors": [
-    {
-      "name": "HorizontalOrientable"
-    }
+    { "name": "HorizontalOrientable" }
   ],
   "variantgroups": [
     {
