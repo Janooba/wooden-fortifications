@@ -1,0 +1,15 @@
+﻿{
+  "ingredientPattern": "WW,WW,WW",
+  "width": 2,
+  "height": 3,
+  "ingredients":
+  {
+    "W": { "type": "item", "code": "game:firewood"}
+  },
+  "output":
+  {
+    "type": "block",
+    "code": "palisadewall-north",
+    "quantity": 1
+  }
+}

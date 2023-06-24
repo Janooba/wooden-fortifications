@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{e8e97d9c-635c-4851-817f-dea74a5cc5fc}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>woodenfortifications</RootNamespace>
+    <AssemblyName>woodenfortifications</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\bin</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Debug\woodenfortifications\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>D:\bin</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Release\woodenfortifications\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+
+
+    <Reference Include="Microsoft.CSharp" />
+
+    <Reference Include="System.Data" />
+
+    <Reference Include="System.Net.Http" />
+
+    <Reference Include="System.Xml" />
+
+    <Reference Include="VintagestoryAPI">
+      <HintPath>D:/Program Files/Vintagestory\VintagestoryAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="VSSurvivalMod">
+      <HintPath>D:/Program Files/Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="VSEssentials">
+      <HintPath>D:/Program Files/Vintagestory\Mods\VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="VSCreativeMod">
+      <HintPath>D:/Program Files/Vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:/Program Files/Vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="src\" />
+    <Content Include="assets\woodfortifications\blocktypes\archersstake.json" />
+    <Content Include="assets\woodfortifications\blocktypes\palisadewall.json" />
+    <Content Include="assets\woodfortifications\blocktypes\palisadewalkway.json" />
+    <Content Include="assets\woodfortifications\lang\en.json" />
+    <Content Include="assets\woodfortifications\recipes\grid\archersstake.json" />
+    <Content Include="assets\woodfortifications\recipes\grid\palisadewall.json" />
+    <Content Include="assets\woodfortifications\recipes\grid\palisadewall_walkway.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archersstake_copper.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant1.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant2.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant3.json" />
+    <Content Include="assets\woodfortifications\shapes\block\archersstake_variant4.json" />
+    <Content Include="assets\woodfortifications\shapes\block\palisade1.json" />
+    <Content Include="assets\woodfortifications\shapes\block\palisade1_walkway.json" />
+    <Content Include="assets\woodfortifications\shapes\block\palisade2.json" />
+    <Content Include="assets\woodfortifications\shapes\block\palisade2_walkway.json" />
+    <Content Include="assets\woodfortifications\textures\block\archersstake.png" />
+    <Content Include="LICENSE" />
+    <Content Include="modinfo.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\BlockEntity\BlockEntity_Spike.cs" />
+    <Compile Include="src\Block\Block_ArchersStake.cs" />
+    <Compile Include="src\WoodenFortifications.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)" 
+copy "$(TargetDir)\$(TargetName).pdb" "$(ProjectDir)" 
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

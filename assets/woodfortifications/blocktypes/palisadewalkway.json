@@ -1,0 +1,51 @@
+﻿{
+  "code": "palisadewalkway",
+  "class": "BlockBehaviorNWOrientable",
+  "behaviors": [
+    {
+      "name": "HorizontalOrientable"
+    }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "creativeinventory": { "general": ["palisadewalkway-north"] },
+  "blockmaterial": "Wood",
+  "drawtype": "json",
+  "shapeByType": {
+    "*-north": { "base": "block/palisade1_walkway", "rotateY": 90, "alternates": [{"base": "block/palisade2_walkway", "rotateY": 90 }]},
+    "*-east": { "base": "block/palisade1_walkway", "rotateY": 0, "alternates": [{"base": "block/palisade2_walkway", "rotateY": 0 }]},
+    "*-west": { "base": "block/palisade1_walkway", "rotateY": 180, "alternates": [{"base": "block/palisade2_walkway", "rotateY": 180 }]},
+    "*-south": { "base": "block/palisade1_walkway", "rotateY": 270, "alternates": [{"base": "block/palisade2_walkway", "rotateY": 270 }]}
+  },
+  "sidesolid": { "all": false },
+  "sideopaque": { "all": false },
+  "sideao": { "all": true },
+  "emitsideao": { "all": false },
+  "collisionSelectionBoxes": [
+    { "x1": 0, "y1": 0, "z1": 0.75, "x2": 1, "y2": 2, "z2": 1,
+      "rotateYByType": {
+        "*-north": 0,
+        "*-east": 270,
+        "*-south": 180,
+        "*-west": 90
+      }
+    },
+    { "x1": 0, "y1": 1.4375, "z1": 0, "x2": 1, "y2": 1.6875, "z2": 0.75,
+      "rotateYByType": {
+        "*-north": 0,
+        "*-east": 270,
+        "*-south": 180,
+        "*-west": 90
+      }
+    }
+  ],
+  "resistance": 2,
+  "sounds": {
+    "place": "game:block/wood",
+    "walk": "game:walk/wood"
+  }
+}

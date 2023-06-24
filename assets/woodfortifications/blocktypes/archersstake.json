@@ -1,0 +1,46 @@
+﻿{
+  "code": "archersstake",
+  "class": "Block_ArchersStake",
+  "entityClass": "BlockEntity_ArchersStake",
+  "behaviors": [
+    {
+      "name": "HorizontalOrientable"
+    }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "attributes": {
+    "damage": 2,
+    "hit_points": 25
+  },
+  "creativeinventory": { "general": ["*"] },
+  "blockmaterial": "Wood",
+  "drawtype": "json",
+  "shapeByType": {
+    "*-north": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 270, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 270 }]},
+    "*-east": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 180, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 180 }]},
+    "*-west": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 0, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 0 }]},
+    "*-south": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 90, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 90 }]}
+  },
+  "collisionSelectionBox": { "x1": 0.25, "y1": 0, "z1": 0, "x2": 0.9375, "y2": 0.7, "z2": 1,
+    "rotateYByType": {
+      "*-north": 270,
+      "*-east": 180,
+      "*-south": 90,
+      "*-west": 0
+    }
+  },
+  "sidesolid": { "all": false },
+  "sideopaque": { "all": false },
+  "sideao": { "all": true },
+  "emitsideao": { "all": false },
+  "resistance": 2,
+  "sounds": {
+    "place": "game:block/wood",
+    "walk": "game:walk/wood"
+  }
+}
