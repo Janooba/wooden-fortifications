@@ -1,5 +1,7 @@
 ﻿{
   "code": "palisadewall",
+  "class": "Block_StackablePalisade",
+  "entityClass": "BlockEntity_StackableBlock",
   "behaviors": [
     {
       "name": "HorizontalOrientable"

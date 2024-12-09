@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "woodenfortifications", "woodenfortifications\woodenfortifications.csproj", "{029F552C-7FC2-405C-9347-F8E5909AA042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "ZZCakeBuild\CakeBuild.csproj", "{5D1455D9-33CA-4901-A2C2-327E289F2E27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{029F552C-7FC2-405C-9347-F8E5909AA042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029F552C-7FC2-405C-9347-F8E5909AA042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029F552C-7FC2-405C-9347-F8E5909AA042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029F552C-7FC2-405C-9347-F8E5909AA042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D1455D9-33CA-4901-A2C2-327E289F2E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D1455D9-33CA-4901-A2C2-327E289F2E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D1455D9-33CA-4901-A2C2-327E289F2E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D1455D9-33CA-4901-A2C2-327E289F2E27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

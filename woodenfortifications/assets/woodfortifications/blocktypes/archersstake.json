@@ -19,10 +19,10 @@
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 270, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 270 }]},
-    "*-east": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 180, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 180 }]},
-    "*-west": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 0, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 0 }]},
-    "*-south": { "base": "game:block/wood/fence/palisade/palisadestakes01", "rotateY": 90, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes02", "rotateY": 90 }]}
+    "*-north": { "base": "game:block/wood/fence/palisade/palisadestakes1", "rotateY": 270, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes2", "rotateY": 270 }]},
+    "*-east": { "base": "game:block/wood/fence/palisade/palisadestakes1", "rotateY": 180, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes2", "rotateY": 180 }]},
+    "*-west": { "base": "game:block/wood/fence/palisade/palisadestakes1", "rotateY": 0, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes2", "rotateY": 0 }]},
+    "*-south": { "base": "game:block/wood/fence/palisade/palisadestakes1", "rotateY": 90, "alternates": [{"base": "game:block/wood/fence/palisade/palisadestakes2", "rotateY": 90 }]}
   },
   "collisionSelectionBox": { "x1": 0.25, "y1": 0, "z1": 0, "x2": 0.9375, "y2": 0.7, "z2": 1,
     "rotateYByType": {

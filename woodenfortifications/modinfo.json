@@ -1,0 +1,11 @@
+{
+    "type": "code",
+    "modid": "woodenfortifications",
+    "name": "woodenfortifications",
+    "authors": ["Janooba"],
+    "description": "Primitive defences for your home sweet home",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": "1.20.0-rc.1"
+    }
+}
