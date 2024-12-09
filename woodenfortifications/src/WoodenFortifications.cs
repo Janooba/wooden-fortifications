@@ -10,8 +10,8 @@ namespace woodenfortifications
             api.RegisterBlockClass("Block_ArchersStake", typeof(Block_ArchersStake));
             api.RegisterBlockEntityClass("BlockEntity_Spike", typeof(BlockEntity_Spike));
             
-            api.RegisterBlockClass("Block_StackablePalisade", typeof(Block_StackablePalisade));
-            api.RegisterBlockEntityClass("BlockEntity_StackableBlock", typeof(BlockEntity_StackableBlock));
+            // api.RegisterBlockClass("Block_StackablePalisade", typeof(Block_StackablePalisade));
+            // api.RegisterBlockEntityClass("BlockEntity_StackableBlock", typeof(BlockEntity_StackableBlock));
         }
     }
 }
