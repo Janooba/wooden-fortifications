@@ -19,10 +19,10 @@
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "block/archerscopperstake", "rotateY": 0},
-    "*-east": { "base": "block/archerscopperstake", "rotateY": 270},
-    "*-west": { "base": "block/archerscopperstake", "rotateY": 90},
-    "*-south": { "base": "block/archerscopperstake", "rotateY": 180}
+    "*-north": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 0},
+    "*-east": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 270},
+    "*-west": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 90},
+    "*-south": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 180}
   },
   "collisionSelectionBox": { "x1": 0.25, "y1": 0, "z1": 0, "x2": 0.9375, "y2": 0.7, "z2": 1,
     "rotateYByType": {

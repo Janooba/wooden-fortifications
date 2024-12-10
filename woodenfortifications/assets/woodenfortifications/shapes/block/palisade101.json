@@ -1,0 +1,398 @@
+{
+  "editor": {
+    "allAngles": true,
+    "entityTextureMode": false
+  },
+  "textureWidth": 16,
+  "textureHeight": 16,
+  "textureSizes": {
+  },
+  "textures": {
+    "oak": "game:block/wood/bark/aged",
+    "oak2": "game:block/wood/debarked/oak"
+  },
+  "elements": [
+    {
+      "name": "Cube2",
+      "from": [
+        7.0,
+        7.0,
+        -3.0
+      ],
+      "to": [
+        9.0,
+        9.0,
+        19.0
+      ],
+      "rotationOrigin": [
+        7.0,
+        7.0,
+        -3.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            22.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            22.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            22.0
+          ]
+        },
+        "down": {
+          "texture": "#oak2",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            22.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "Stake7",
+      "from": [
+        7.48,
+        0.0,
+        13.36
+      ],
+      "to": [
+        13.68,
+        20.8,
+        19.56
+      ],
+      "rotationOrigin": [
+        9.43,
+        0.0,
+        15.31
+      ],
+      "rotationY": -17.0,
+      "faces": {
+        "north": {
+          "texture": "#oak",
+          "uv": [
+            10.5,
+            0.0,
+            14.5,
+            16.0
+          ],
+          "autoUv": false,
+          "windMode": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "windData": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        "east": {
+          "texture": "#oak",
+          "uv": [
+            8.0,
+            0.0,
+            12.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "south": {
+          "texture": "#oak",
+          "uv": [
+            6.5,
+            0.0,
+            10.5,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "west": {
+          "texture": "#oak",
+          "uv": [
+            2.5,
+            0.0,
+            6.5,
+            16.0
+          ],
+          "autoUv": false,
+          "windMode": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "windData": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#oak2",
+          "uv": [
+            4.5,
+            7.0,
+            8.5,
+            11.0
+          ],
+          "autoUv": false
+        }
+      }
+    },
+    {
+      "name": "Stake15",
+      "from": [
+        1.84,
+        0.0,
+        7.39
+      ],
+      "to": [
+        8.04,
+        20.8,
+        13.59
+      ],
+      "rotationOrigin": [
+        3.79,
+        0.0,
+        9.34
+      ],
+      "rotationY": 14.0,
+      "faces": {
+        "north": {
+          "texture": "#oak",
+          "uv": [
+            8.0,
+            0.0,
+            12.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "east": {
+          "texture": "#oak",
+          "uv": [
+            11.0,
+            0.0,
+            15.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "south": {
+          "texture": "#oak",
+          "uv": [
+            5.0,
+            0.0,
+            9.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "west": {
+          "texture": "#oak",
+          "uv": [
+            6.5,
+            0.0,
+            10.5,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "up": {
+          "texture": "#oak2",
+          "uv": [
+            10.0,
+            11.5,
+            14.0,
+            15.5
+          ],
+          "autoUv": false
+        }
+      }
+    },
+    {
+      "name": "Stake25",
+      "from": [
+        7.92,
+        0.0,
+        5.52
+      ],
+      "to": [
+        14.12,
+        20.8,
+        11.72
+      ],
+      "rotationOrigin": [
+        9.87,
+        0.0,
+        7.47
+      ],
+      "rotationY": 14.0,
+      "faces": {
+        "north": {
+          "texture": "#oak",
+          "uv": [
+            2.5,
+            0.0,
+            6.5,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "east": {
+          "texture": "#oak",
+          "uv": [
+            4.0,
+            0.0,
+            8.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "south": {
+          "texture": "#oak",
+          "uv": [
+            9.0,
+            0.0,
+            13.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "west": {
+          "texture": "#oak",
+          "uv": [
+            4.5,
+            0.0,
+            8.5,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "up": {
+          "texture": "#oak2",
+          "uv": [
+            10.0,
+            13.0,
+            14.0,
+            17.0
+          ],
+          "autoUv": false
+        }
+      }
+    },
+    {
+      "name": "Stake36",
+      "from": [
+        2.14,
+        0.0,
+        -1.21
+      ],
+      "to": [
+        8.34,
+        20.8,
+        4.99
+      ],
+      "rotationOrigin": [
+        4.09,
+        0.0,
+        0.74
+      ],
+      "rotationY": -17.0,
+      "faces": {
+        "north": {
+          "texture": "#oak",
+          "uv": [
+            9.5,
+            0.0,
+            13.5,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "east": {
+          "texture": "#oak",
+          "uv": [
+            6.0,
+            0.0,
+            10.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "south": {
+          "texture": "#oak",
+          "uv": [
+            4.0,
+            0.0,
+            8.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "west": {
+          "texture": "#oak",
+          "uv": [
+            8.0,
+            0.0,
+            12.0,
+            16.0
+          ],
+          "autoUv": false
+        },
+        "up": {
+          "texture": "#oak2",
+          "uv": [
+            7.5,
+            10.0,
+            11.5,
+            14.0
+          ],
+          "autoUv": false
+        }
+      }
+    }
+  ]
+}

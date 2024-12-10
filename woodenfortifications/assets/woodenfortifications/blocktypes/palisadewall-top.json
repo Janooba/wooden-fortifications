@@ -1,0 +1,41 @@
+﻿{
+  "code": "palisadewall-top",
+  "class": "Block_StackablePalisade",
+  "entityClass": "BlockEntity_StackableBlock",
+  "behaviors": [
+    {
+      "name": "HorizontalOrientable"
+    }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "blockmaterial": "Wood",
+  "drawtype": "json",
+  "shapeByType": {
+    "*-north": { "base": "block/palisadetop101", "rotateY": 90},
+    "*-east": { "base": "block/palisadetop101", "rotateY": 0},
+    "*-west": { "base": "block/palisadetop101", "rotateY": 180},
+    "*-south": { "base": "block/palisadetop101", "rotateY": 270}
+  },
+  "sidesolid": { "all": false },
+  "sideopaque": { "all": false },
+  "sideao": { "all": true },
+  "emitsideao": { "all": false },
+  "collisionSelectionBox": { "x1": 0, "y1": 0, "z1": 0.75, "x2": 1, "y2": 2, "z2": 1,
+    "rotateYByType": {
+      "*-north": 0,
+      "*-east": 270,
+      "*-south": 180,
+      "*-west": 90
+    }
+  },
+  "resistance": 2,
+  "sounds": {
+    "place": "game:block/wood",
+    "walk": "game:walk/wood"
+  }
+}

@@ -17,10 +17,10 @@
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "block/palisade1", "rotateY": 90, "alternates": [{"base": "block/palisade2", "rotateY": 90 }]},
-    "*-east": { "base": "block/palisade1", "rotateY": 0, "alternates": [{"base": "block/palisade2", "rotateY": 0 }]},
-    "*-west": { "base": "block/palisade1", "rotateY": 180, "alternates": [{"base": "block/palisade2", "rotateY": 180 }]},
-    "*-south": { "base": "block/palisade1", "rotateY": 270, "alternates": [{"base": "block/palisade2", "rotateY": 270 }]}
+    "*-north": { "base": "block/palisade101", "rotateY": 90 },
+    "*-east": { "base": "block/palisade101", "rotateY": 0 },
+    "*-west": { "base": "block/palisade101", "rotateY": 180 },
+    "*-south": { "base": "block/palisade101", "rotateY": 270 }
   },
   "sidesolid": { "all": false },
   "sideopaque": { "all": false },

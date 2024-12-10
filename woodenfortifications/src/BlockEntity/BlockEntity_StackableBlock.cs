@@ -9,38 +9,87 @@ namespace woodenfortifications
     {
         public virtual bool OnPlayerInteract(IPlayer byPlayer)
         {
-            // Recursively interact upwards till it hits the top of the stack
-            BlockPos abovePos = Pos.UpCopy();
-            BlockEntity aboveEntity = Api.World.BlockAccessor.GetBlockEntity(abovePos);
-            if (aboveEntity is BlockEntity_StackableBlock stackableBlock)
-            {
-                return stackableBlock.OnPlayerInteract(byPlayer);
-            }
+            string baseCode = Block.CodeWithoutParts(10);
             
-            // Is held item equal to the placed item being interacted with?
+            // Get base block
+            BlockEntity baseBlock = GetBaseBlock(Pos, baseCode);
+            
+            // Is held item equal to the base item being interacted with?
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
             Block hotbarBlock = hotbarSlot.Itemstack.Block;
-            
-            bool equalStack = hotbarBlock != null && hotbarBlock.CodeWithoutParts(10) == Block.CodeWithoutParts(10);
-
+            bool equalStack = hotbarBlock != null && hotbarBlock.CodeWithoutParts(10) == baseBlock.Block.CodeWithoutParts(10);
             if (!equalStack) return false;
             
-            Block thisBlock = Api.World.BlockAccessor.GetBlock(Pos);
-            Block aboveBlock = Api.World.BlockAccessor.GetBlock(abovePos);
+            BlockEntity topBlock = GetTopBlock(Pos, baseCode);
+            BlockPos aboveTopPos = topBlock.Pos.UpCopy();
+            BlockEntity aboveBlock = Api.World.BlockAccessor.GetBlockEntity(aboveTopPos);
 
-            if (!aboveBlock.IsReplacableBy(thisBlock)) return false;
+            // Check if the block above is replaceable by the block being placed
+            if (aboveBlock != null && !aboveBlock.Block.IsReplacableBy(Block)) return false;
             
             if (Api.World is IServerWorldAccessor)
             {
+                // Duplicate base up to top
+                BlockPos currPos = baseBlock.Pos;
+                while (currPos.Y < aboveTopPos.Y)
+                {
+                    if (Api.World.BlockAccessor.GetBlock(currPos).Code != baseBlock.Block.Code)
+                        Api.World.BlockAccessor.SetBlock(baseBlock.Block.Id, currPos); 
+                    
+                    currPos = currPos.UpCopy();
+                }
+                
+                // set top
                 string variant = Block.CodeEndWithoutParts(1);
 
-                var newBlock = Api.Assets.Get<Block>(new AssetLocation("woodenfortifications", hotbarBlock.CodeWithoutParts(10) +"-"+ variant));
+                string newCode = "woodenfortifications:" + baseCode + "-top-" + variant;
                 
-                Api.World.BlockAccessor.SetBlock((ushort)newBlock.Id, abovePos);
+                var newBlock = Api.World.GetBlock(newCode);
+                Api.World.BlockAccessor.SetBlock((ushort)newBlock.Id, currPos);
 
                 hotbarSlot.Itemstack.StackSize--;
             }
             return true;
+        }
+        
+        private BlockEntity GetBaseBlock(BlockPos pos, string blockBaseCode)
+        {
+            BlockEntity baseBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+            while (true)
+            {
+                pos = pos.DownCopy();
+                var nextBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+
+                if (nextBlock == null)
+                    break;
+
+                if (nextBlock.Block.CodeWithoutParts(10) == blockBaseCode)
+                    baseBlock = nextBlock;
+                else
+                    break;
+            }
+
+            return baseBlock;
+        }
+
+        private BlockEntity GetTopBlock(BlockPos pos, string blockBaseCode)
+        {
+            BlockEntity topBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+            while (true)
+            {
+                pos = pos.UpCopy();
+                var nextBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+
+                if (nextBlock == null)
+                    break;
+                
+                if (nextBlock.Block.CodeWithoutParts(10) == blockBaseCode)
+                    topBlock = nextBlock;
+                else
+                    break;
+            }
+
+            return topBlock;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace woodenfortifications
         {
             base.Initialize(api);
             
-            _maxHealth = Block?.Attributes["hit_points"].AsInt(25) ?? 25;
+            _maxHealth = Block?.Attributes["hit_points"]?.AsInt(25) ?? 25;
             if (Health == 0) Health = _maxHealth;
         }
 

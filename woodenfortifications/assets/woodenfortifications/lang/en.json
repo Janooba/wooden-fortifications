@@ -1,3 +1,6 @@
-{
-    "hello": "hello world!"
+﻿{
+  "block-archersstake-*": "Archer's Stake",
+  "block-archerscopperstake-*": "Archer's Copper Spears",
+  "block-palisadewall-*": "Palisade Wall",
+  "block-palisadewalkway-*": "Palisade Wall w/ Walkway"
 }
