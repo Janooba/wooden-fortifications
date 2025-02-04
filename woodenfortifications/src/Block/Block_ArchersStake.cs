@@ -8,11 +8,13 @@ namespace woodenfortifications
     public class Block_ArchersStake : Block
     {
         private int _damage;
+        private bool _damageFromSide;
 
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
             _damage = Attributes["damage"].AsInt(2);
+            _damageFromSide = Attributes["damageFromSide"].AsBool(true);
         }
 
         public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
@@ -39,7 +41,13 @@ namespace woodenfortifications
 
             var blockDirection = BlockFacing.FromCode(LastCodePart());
 
-            if (facing == blockDirection.Opposite || facing == BlockFacing.UP)
+            bool shouldDamage = facing == BlockFacing.UP;
+            if (_damageFromSide && facing != blockDirection.Opposite)
+            {
+                shouldDamage = true;
+            }
+            
+            if (shouldDamage)
             {
                 if (world.Side == EnumAppSide.Server)
                 {

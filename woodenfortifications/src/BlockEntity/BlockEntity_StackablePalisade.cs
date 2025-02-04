@@ -5,7 +5,7 @@ using Vintagestory.GameContent;
 
 namespace woodenfortifications
 {
-    public class BlockEntity_StackableBlock : BlockEntity
+    public class BlockEntity_StackablePalisade : BlockEntity
     {
         public virtual bool OnPlayerInteract(IPlayer byPlayer)
         {
@@ -16,16 +16,39 @@ namespace woodenfortifications
             
             // Is held item equal to the base item being interacted with?
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
+            
+            if (hotbarSlot.Empty) return false;
+            
             Block hotbarBlock = hotbarSlot.Itemstack.Block;
             bool equalStack = hotbarBlock != null && hotbarBlock.CodeWithoutParts(10) == baseBlock.Block.CodeWithoutParts(10);
-            if (!equalStack) return false;
             
+            if (equalStack)
+            {
+                IncreaseStack(baseCode, hotbarSlot, byPlayer, baseBlock);
+                return true;
+            }
+            
+            return false;
+        }
+
+        private bool IncreaseStack(string baseCode, ItemSlot hotbarSlot, IPlayer byPlayer, BlockEntity baseBlock)
+        {
             BlockEntity topBlock = GetTopBlock(Pos, baseCode);
             BlockPos aboveTopPos = topBlock.Pos.UpCopy();
             BlockEntity aboveBlock = Api.World.BlockAccessor.GetBlockEntity(aboveTopPos);
 
+            if (topBlock.Pos.Y - baseBlock.Pos.Y >= 4) return false;
+            
             // Check if the block above is replaceable by the block being placed
             if (aboveBlock != null && !aboveBlock.Block.IsReplacableBy(Block)) return false;
+
+            if (hotbarSlot.Itemstack == null) return false;
+
+            if (byPlayer.WorldData.CurrentGameMode != EnumGameMode.Creative)
+            {
+                hotbarSlot.TakeOut(1);
+                hotbarSlot.OnItemSlotModified(null);
+            }
             
             if (Api.World is IServerWorldAccessor)
             {
@@ -40,15 +63,14 @@ namespace woodenfortifications
                 }
                 
                 // set top
-                string variant = Block.CodeEndWithoutParts(1);
+                string variant = Block.CodeEndWithoutParts(10);
 
                 string newCode = "woodenfortifications:" + baseCode + "-top-" + variant;
                 
                 var newBlock = Api.World.GetBlock(newCode);
                 Api.World.BlockAccessor.SetBlock((ushort)newBlock.Id, currPos);
-
-                hotbarSlot.Itemstack.StackSize--;
             }
+
             return true;
         }
         

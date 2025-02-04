@@ -1,5 +1,5 @@
 ﻿{
-  "code": "archerscopperstake",
+  "code": "spike_barricade",
   "class": "Block_ArchersStake",
   "entityClass": "BlockEntity_Spike",
   "behaviors": [
@@ -12,18 +12,18 @@
     }
   ],
   "attributes": {
-    "damage": 3,
-    "hit_points": 60,
-    "damageFromSide": true
+    "damage": 2,
+    "hit_points": 40,
+    "damageFromSide": false
   },
-  "creativeinventory": { "general": ["archerscopperstake-north"] },
+  "creativeinventory": { "general": ["spike_barricade-north"] },
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 0},
-    "*-east": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 270},
-    "*-west": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 90},
-    "*-south": { "base": "woodenfortifications:block/archerscopperstake", "rotateY": 180}
+    "*-north": { "base": "block/spike_barricade", "rotateY": 270 },
+    "*-east": { "base": "block/spike_barricade", "rotateY": 180 },
+    "*-west": { "base": "block/spike_barricade", "rotateY": 0 },
+    "*-south": { "base": "block/spike_barricade", "rotateY": 90 }
   },
   "collisionSelectionBox": { "x1": 0.25, "y1": 0, "z1": 0, "x2": 0.9375, "y2": 0.7, "z2": 1,
     "rotateYByType": {

@@ -11,7 +11,7 @@ namespace woodenfortifications
         {
             BlockEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position);
 
-            if (be is BlockEntity_StackableBlock stackableBlock)
+            if (be is BlockEntity_StackablePalisade stackableBlock)
             {
                 return stackableBlock.OnPlayerInteract(byPlayer);
             }
@@ -21,11 +21,14 @@ namespace woodenfortifications
         
         public override void OnNeighbourBlockChange(IWorldAccessor world, BlockPos pos, BlockPos neibpos)
         {
-            Block belowBlock = world.BlockAccessor.GetBlock(pos.DownCopy());
-            if (!belowBlock.CanAttachBlockAt(world.BlockAccessor, this, pos.DownCopy(), BlockFacing.UP))
+            if (neibpos.Y < pos.Y)
             {
-                world.BlockAccessor.BreakBlock(pos, null);
-                return;
+                Block belowBlock = world.BlockAccessor.GetBlock(pos.DownCopy());
+                if (!belowBlock.CanAttachBlockAt(world.BlockAccessor, this, pos.DownCopy(), BlockFacing.UP))
+                {
+                    world.BlockAccessor.BreakBlock(pos, null);
+                    return;
+                }
             }
 
             base.OnNeighbourBlockChange(world, pos, neibpos);

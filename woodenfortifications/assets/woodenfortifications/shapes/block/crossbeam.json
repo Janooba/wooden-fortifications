@@ -1,0 +1,32 @@
+{
+	"editor": {
+		"collapsedPaths": "Root/Bracing/OuterStake3/Rope35,Root/Bracing/InnerCorner,Root/OuterCorner/Cube60,Root/Bracing/OuterStake2,Root/TopBracing/InerStake,Root/Bracing/OuterStake2/Rope16,Root/Bracing/OuterStake3/Cube72,Root/Bracing/OuterCorner/Cube60,Root/Cornerpost,Root/Bracing/OuterStake3,Root/Bracing/OuterStake2/Cube49,Root/OuterCorner/OuterStake3/Rope35,Root/OuterCorner/InnerCorner,Root/InerBase/Rope14,Root/OuterCorner/OuterStake2,Root/InerBase,Root/Bracing/OuterCorner,Root/InerStake,Root/OuterCorner/OuterStake3/Rope29,Root/Bracing/OuterStake2/Rope18,Root/InerBase/Rope1,Root/OuterStake1,Root/OuterCorner/OuterStake3/Cube72,Root/OuterCorner/OuterStake3",
+		"allAngles": true,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"aged3": "game:block/wood/bark/quad/ends/placed/aged",
+		"aged2": "game:block/wood/bark/quad/placed/aged"
+	},
+	"elements": [
+		{
+			"name": "Crossbeam1",
+			"from": [ 16.0, 16.005, 8.6 ],
+			"to": [ 23.64, 32.005, 15.44 ],
+			"rotationOrigin": [ 16.0, 16.005, 8.6 ],
+			"rotationX": 90.0,
+			"rotationZ": 90.0,
+			"faces": {
+				"north": { "texture": "#aged2", "uv": [ 1.5, 0.5, 7.5, 15.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
+				"east": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.0 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#aged2", "uv": [ 1.5, 0.5, 8.0, 15.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#aged2", "uv": [ 1.5, 0.5, 8.0, 15.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#aged3", "uv": [ 1.0, 1.0, 6.5, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
+				"down": { "texture": "#aged3", "uv": [ 0.5, 1.5, 6.5, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+			}
+		}
+	]}

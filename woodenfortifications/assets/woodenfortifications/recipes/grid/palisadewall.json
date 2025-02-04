@@ -1,15 +1,16 @@
 ﻿{
-  "ingredientPattern": "WW,WW,WW",
+  "ingredientPattern": "W_,WA,W_",
   "width": 2,
   "height": 3,
   "ingredients":
   {
-    "W": { "type": "item", "code": "game:firewood"}
+    "W": { "type": "block", "code": "game:log-*"},
+    "A": { "type": "item", "code": "game:axe-*", "isTool": true }
   },
   "output":
   {
     "type": "block",
     "code": "palisadewall-north",
-    "quantity": 1
+    "quantity": 8
   }
 }

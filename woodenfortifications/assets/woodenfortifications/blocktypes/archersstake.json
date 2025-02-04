@@ -13,7 +13,8 @@
   ],
   "attributes": {
     "damage": 2,
-    "hit_points": 25
+    "hit_points": 25,
+    "damageFromSide": true
   },
   "creativeinventory": { "general": ["archersstake-north"] },
   "blockmaterial": "Wood",

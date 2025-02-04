@@ -1,7 +1,7 @@
 ﻿{
   "code": "palisadewall",
   "class": "Block_StackablePalisade",
-  "entityClass": "BlockEntity_StackableBlock",
+  "entityClass": "BlockEntity_StackablePalisade",
   "behaviors": [
     {
       "name": "HorizontalOrientable"
@@ -17,16 +17,16 @@
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "block/palisade101", "rotateY": 90 },
-    "*-east": { "base": "block/palisade101", "rotateY": 0 },
-    "*-west": { "base": "block/palisade101", "rotateY": 180 },
-    "*-south": { "base": "block/palisade101", "rotateY": 270 }
+    "*-north": { "base": "block/vertical-base", "rotateY": 0 },
+    "*-east": { "base": "block/vertical-base", "rotateY": 270 },
+    "*-south": { "base": "block/vertical-base", "rotateY": 180 },
+    "*-west": { "base": "block/vertical-base", "rotateY": 90 }
   },
   "sidesolid": { "all": false },
   "sideopaque": { "all": false },
   "sideao": { "all": true },
   "emitsideao": { "all": false },
-  "collisionSelectionBox": { "x1": 0, "y1": 0, "z1": 0.75, "x2": 1, "y2": 2, "z2": 1,
+  "collisionSelectionBox": { "x1": 0, "y1": 0, "z1": 0.5, "x2": 1, "y2": 1, "z2": 1,
     "rotateYByType": {
       "*-north": 0,
       "*-east": 270,

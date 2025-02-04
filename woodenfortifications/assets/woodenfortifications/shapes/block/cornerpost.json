@@ -1,0 +1,30 @@
+{
+	"editor": {
+		"collapsedPaths": "Root/Bracing/OuterStake3/Rope35,Root/OuterCorner/Cube60,Root/TopBracing/InerStake,Root/Bracing/OuterStake2/Rope16,Root/Bracing/OuterStake3/Cube72,Root/Bracing/OuterCorner/Cube60,Root/Bracing/OuterStake2/Cube49,Root/OuterCorner/OuterStake3/Rope35,Root/InerBase/Rope14,Root/OuterCorner/OuterStake2,Root/OuterCorner/OuterStake3/Rope29,Root/Cornerpost/InsideCorner/Rope1,Root/Cornerpost/InsideCorner/Rope15,Root/Cornerpost/InsideCorner/Rope14,Root/OuterStake1,Root/OuterCorner/OuterStake3/Cube72,Root/OuterCorner/OuterStake3,Root/Bracing/InnerCorner,Root/Bracing/OuterStake2,Root/Bracing/OuterStake3,Root/OuterCorner/InnerCorner,Root/InerBase,Root/Bracing/OuterCorner,Root/InerStake,Root/Bracing/OuterStake2/Rope18,Root/InerBase/Rope1",
+		"allAngles": true,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"aged3": "game:block/wood/bark/quad/ends/placed/aged",
+		"aged2": "game:block/wood/bark/quad/placed/aged"
+	},
+	"elements": [
+		{
+			"name": "Cornerpost",
+			"from": [ 8.58, 0.0, 8.53 ],
+			"to": [ 16.3155, 16.0, 16.2655 ],
+			"rotationOrigin": [ 10.7232, -7.005, 10.6752 ],
+			"faces": {
+				"north": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"east": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"south": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"west": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.0, 15.5 ], "autoUv": false },
+				"up": { "texture": "#aged3", "uv": [ 1.5, 1.0, 7.0, 6.0 ], "autoUv": false },
+				"down": { "texture": "#aged3", "uv": [ 1.5, 1.0, 5.5, 6.0 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+			}
+		}
+	]}

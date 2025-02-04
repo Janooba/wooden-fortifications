@@ -1,0 +1,15 @@
+﻿{
+  "ingredientPattern": "W_W,_W_,W_W",
+  "width": 3,
+  "height": 3,
+  "ingredients":
+  {
+    "W": { "type": "item", "code": "game:firewood"}
+  },
+  "output":
+  { 
+    "type": "block", 
+    "code": "spike_barricade-north",
+    "quantity": 1
+  }
+}

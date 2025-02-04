@@ -13,11 +13,12 @@ public class WoodenFortificationsModSystem : ModSystem
     {
         api.Logger.Notification("Hello from template mod: " + api.Side);
         
-        api.RegisterBlockClass("Block_ArchersStake", typeof(Block_ArchersStake));
-        api.RegisterBlockEntityClass("BlockEntity_Spike", typeof(BlockEntity_Spike));
+        api.RegisterBlockClass(nameof(Block_ArchersStake), typeof(Block_ArchersStake));
+        api.RegisterBlockEntityClass(nameof(BlockEntity_Spike), typeof(BlockEntity_Spike));
             
-        api.RegisterBlockClass("Block_StackablePalisade", typeof(Block_StackablePalisade));
-        api.RegisterBlockEntityClass("BlockEntity_StackableBlock", typeof(BlockEntity_StackableBlock));
+        api.RegisterBlockClass(nameof(Block_StackablePalisade), typeof(Block_StackablePalisade));
+        api.RegisterBlockEntityClass(nameof(BlockEntity_StackablePalisade), typeof(BlockEntity_StackablePalisade));
+        api.RegisterBlockBehaviorClass(nameof(Behaviour_PalisadeAttachment), typeof(Behaviour_PalisadeAttachment));
     }
 
     public override void StartServerSide(ICoreServerAPI api)
