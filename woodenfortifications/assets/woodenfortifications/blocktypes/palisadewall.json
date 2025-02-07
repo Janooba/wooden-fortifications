@@ -30,23 +30,33 @@
     "*-north": { "base": "block/vertical-{piece}", "rotateY": 180 },
     "*-east": { "base": "block/vertical-{piece}", "rotateY": 90 },
     "*-south": { "base": "block/vertical-{piece}", "rotateY": 0 },
-    "*-west": { "base": "block/vertical-{piece}", "rotateY": 270 },
-
-    "palisadewall-north": { "base": "block/vertical-base", "rotateY": 180 },
-    "palisadewall-east": { "base": "block/vertical-base", "rotateY": 90 },
-    "palisadewall-south": { "base": "block/vertical-base", "rotateY": 0 },
-    "palisadewall-west": { "base": "block/vertical-base", "rotateY": 270 }
+    "*-west": { "base": "block/vertical-{piece}", "rotateY": 270 }
   },
-  "sidesolid": { "all": false },
+  "sidesolidByType": {
+    "*-north": { "all": false, "north": true },
+    "*-east": { "all": false, "east": true },
+    "*-south": { "all": false, "south": true },
+    "*-west": { "all": false, "west": true }
+  },
   "sideopaque": { "all": false },
   "sideao": { "all": true },
   "emitsideao": { "all": false },
-  "collisionSelectionBox": { "x1": 0, "y1": 0, "z1": 0.5, "x2": 1, "y2": 1, "z2": 1,
-    "rotateYByType": {
-      "*-north": 180,
-      "*-east": 90,
-      "*-south": 0,
-      "*-west": 270
+  "collisionSelectionBoxByType": {
+    "*-base-*": { "x1": 0, "y1": 0, "z1": 0.5, "x2": 1, "y2": 1, "z2": 1,
+      "rotateYByType": {
+        "*-north": 180,
+        "*-east": 90,
+        "*-south": 0,
+        "*-west": 270
+      }
+    },
+    "*-top-*": { "x1": 0, "y1": 0, "z1": 0.5, "x2": 1, "y2": 0.8, "z2": 1,
+      "rotateYByType": {
+        "*-north": 180,
+        "*-east": 90,
+        "*-south": 0,
+        "*-west": 270
+      }
     }
   },
   "resistance": 2,

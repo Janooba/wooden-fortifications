@@ -2,6 +2,7 @@
   "block-archersstake-*": "Archer's Stake",
   "block-archerscopperstake-*": "Archer's Copper Spears",
   "block-palisadewall-*": "Palisade Wall",
+  "block-palisadecorner-*": "Palisade Corner",
   "block-palisadewalkway-*": "Palisade Walkway",
   "block-spike_barricade-*": "Spike Barricade"
 }

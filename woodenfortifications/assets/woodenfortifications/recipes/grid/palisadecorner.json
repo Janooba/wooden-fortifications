@@ -1,0 +1,16 @@
+﻿{
+  "ingredientPattern": "__A,WW_,WW_",
+  "width": 3,
+  "height": 3,
+  "ingredients":
+  {
+    "W": { "type": "block", "code": "game:log-*"},
+    "A": { "type": "item", "code": "game:axe-*", "isTool": true }
+  },
+  "output":
+  {
+    "type": "block",
+    "code": "palisadecorner-top",
+    "quantity": 6
+  }
+}

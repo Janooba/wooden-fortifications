@@ -1,0 +1,31 @@
+﻿{
+  "code": "palisadecorner",
+  "class": "Block_StackablePalisade",
+  "entityClass": "BlockEntity_StackablePalisade",
+  "variantgroups": [
+    {
+      "code": "piece",
+      "states": [ "base", "top" ]
+    }
+  ],
+  "creativeinventory": { "general": ["palisadecorner-top"] },
+  "drops": [
+    { "type": "block", "block": "woodenfortifications:palisadecorner-top" }
+  ],
+  "blockmaterial": "Wood",
+  "drawtype": "json",
+  "shape": { "base": "block/vertical-corner-{piece}", "rotateY": 180 },
+  "sidesolid": { "all": true },
+  "sideopaque": { "all": false },
+  "sideao": { "all": false },
+  "emitsideao": { "all": false },
+  "collisionSelectionBoxByType": {
+    "*-base": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 1, "z2": 1 },
+    "*-top": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 1.2, "z2": 1 }
+  },
+  "resistance": 2,
+  "sounds": {
+    "place": "game:block/wood",
+    "walk": "game:walk/wood"
+  }
+}

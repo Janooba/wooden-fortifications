@@ -1,0 +1,74 @@
+{
+	"editor": {
+		"collapsedPaths": "Root/Bracing/OuterStake3/Rope35,Root/Bracing/InnerCorner,Root/OuterCorner/Cube60,Root/OuterCorner/Cube84,Root/TopBracing/InerStake,Root/Bracing/OuterStake2/Rope16,Root/Bracing/OuterStake3/Cube72,Root/Bracing/OuterCorner/Cube60,Root/OuterCorner/InnerCorner2,Root/Cornerpost,Root/Bracing/OuterStake2/Cube49,Root/OuterCorner/Rope2,Root/OuterCorner/OuterStake3/Rope35,Root/OuterCorner/Rope5,Root/OuterCorner/InnerCorner,Root/InerBase/Rope14,Root/OuterCorner/OuterStake2,Root/InerBase,Root/InerStake,Root/Bracing/OuterStake2/Rope18,Root/InerBase/Rope1,Root/OuterStake1,Root/OuterCorner/OuterStake3",
+		"allAngles": true,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"aged3": "game:block/wood/bark/quad/ends/placed/aged",
+		"aged2": "game:block/wood/bark/quad/placed/aged"
+	},
+	"elements": [
+		{
+			"name": "InnerCorner2",
+			"from": [ -0.01, 0.0, 0.0 ],
+			"to": [ 7.97, 16.0, 8.4 ],
+			"rotationOrigin": [ 2.0592, 0.0, 2.1857 ],
+			"faces": {
+				"north": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"east": { "texture": "#aged2", "uv": [ 1.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"south": { "texture": "#aged2", "uv": [ 1.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+				"west": { "texture": "#aged2", "uv": [ 1.5, 0.5, 8.0, 15.5 ], "autoUv": false },
+				"up": { "texture": "#aged3", "uv": [ 1.0, 1.0, 6.5, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1], "windData": [1,1,1,1] },
+				"down": { "texture": "#aged3", "uv": [ 1.0, 1.0, 6.0, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+			},
+			"children": [
+				{
+					"name": "OuterStake3",
+					"from": [ 8.59, 0.0, 0.33 ],
+					"to": [ 16.3255, 16.0, 7.6655 ],
+					"rotationOrigin": [ 10.7332, 0.0, 2.4752 ],
+					"faces": {
+						"north": { "texture": "#aged2", "uv": [ 0.5, 0.5, 8.0, 15.5 ], "autoUv": false },
+						"east": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"south": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"west": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"up": { "texture": "#aged3", "uv": [ 0.5, 0.5, 6.0, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1], "windData": [1,1,1,1] },
+						"down": { "texture": "#aged3", "uv": [ 1.0, 0.0, 5.5, 6.0 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+					}
+				},
+				{
+					"name": "OuterStake2",
+					"from": [ 0.32, 0.0, 8.54 ],
+					"to": [ 7.8555, 16.0, 16.1755 ],
+					"rotationOrigin": [ 2.4692, 0.0, 10.6857 ],
+					"faces": {
+						"north": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"east": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"south": { "texture": "#aged2", "uv": [ 1.0, 0.5, 7.5, 15.0 ], "autoUv": false },
+						"west": { "texture": "#aged2", "uv": [ 1.5, 0.5, 7.5, 15.0 ], "autoUv": false },
+						"up": { "texture": "#aged3", "uv": [ 1.0, 1.0, 6.5, 5.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1], "windData": [1,1,1,1] },
+						"down": { "texture": "#aged3", "uv": [ 1.0, 1.0, 6.0, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+					}
+				},
+				{
+					"name": "OuterCorner",
+					"from": [ 8.59, 0.0, 8.53 ],
+					"to": [ 16.3255, 16.0, 16.2655 ],
+					"rotationOrigin": [ 10.7332, -0.005, 10.6752 ],
+					"faces": {
+						"north": { "texture": "#aged2", "uv": [ 0.5, 0.5, 8.0, 15.5 ], "autoUv": false },
+						"east": { "texture": "#aged2", "uv": [ 1.0, 0.5, 8.0, 14.5 ], "autoUv": false },
+						"south": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.5, 15.5 ], "autoUv": false },
+						"west": { "texture": "#aged2", "uv": [ 0.5, 0.5, 8.0, 15.0 ], "autoUv": false },
+						"up": { "texture": "#aged3", "uv": [ 0.5, 0.5, 6.5, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1], "windData": [1,1,1,1] },
+						"down": { "texture": "#aged3", "uv": [ 1.0, 0.0, 6.5, 6.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] }
+					}
+				}
+			]
+		}
+	]}
