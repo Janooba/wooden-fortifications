@@ -18,7 +18,7 @@
     "*-south": { "base": "block/platform-supported", "rotateY": 180 },
     "*-west": { "base": "block/platform-supported", "rotateY": 90 }
   },
-  "sidesolid": { "all": false },
+  "sidesolid": { "all": false, "up": true },
   "sideopaque": { "all": false },
   "sideao": { "all": true },
   "emitsideao": { "all": false },

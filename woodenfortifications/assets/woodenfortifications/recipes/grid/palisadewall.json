@@ -10,7 +10,7 @@
   "output":
   {
     "type": "block",
-    "code": "palisadewall-north",
-    "quantity": 8
+    "code": "palisadewall-top-north",
+    "quantity": 6
   }
 }

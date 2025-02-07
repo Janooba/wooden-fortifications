@@ -4,23 +4,38 @@
   "entityClass": "BlockEntity_StackablePalisade",
   "behaviors": [
     {
-      "name": "HorizontalOrientable"
+      "name": "HorizontalOrientable",
+      "properties": {
+        "drop": { "type": "block", "code": "woodenfortifications:palisadewall-top-north" }
+      }
     }
   ],
   "variantgroups": [
+    {
+      "code": "piece",
+      "states": [ "base", "top" ]
+    },
     {
       "code": "side",
       "loadFromProperties": "abstract/horizontalorientation"
     }
   ],
-  "creativeinventory": { "general": ["palisadewall-north"] },
+  "creativeinventory": { "general": ["palisadewall-top-north"] },
+  "drops": [
+    { "type": "block", "block": "woodenfortifications:palisadewall-top-north" }
+  ],
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "block/vertical-base", "rotateY": 0 },
-    "*-east": { "base": "block/vertical-base", "rotateY": 270 },
-    "*-south": { "base": "block/vertical-base", "rotateY": 180 },
-    "*-west": { "base": "block/vertical-base", "rotateY": 90 }
+    "*-north": { "base": "block/vertical-{piece}", "rotateY": 180 },
+    "*-east": { "base": "block/vertical-{piece}", "rotateY": 90 },
+    "*-south": { "base": "block/vertical-{piece}", "rotateY": 0 },
+    "*-west": { "base": "block/vertical-{piece}", "rotateY": 270 },
+
+    "palisadewall-north": { "base": "block/vertical-base", "rotateY": 180 },
+    "palisadewall-east": { "base": "block/vertical-base", "rotateY": 90 },
+    "palisadewall-south": { "base": "block/vertical-base", "rotateY": 0 },
+    "palisadewall-west": { "base": "block/vertical-base", "rotateY": 270 }
   },
   "sidesolid": { "all": false },
   "sideopaque": { "all": false },
@@ -28,10 +43,10 @@
   "emitsideao": { "all": false },
   "collisionSelectionBox": { "x1": 0, "y1": 0, "z1": 0.5, "x2": 1, "y2": 1, "z2": 1,
     "rotateYByType": {
-      "*-north": 0,
-      "*-east": 270,
-      "*-south": 180,
-      "*-west": 90
+      "*-north": 180,
+      "*-east": 90,
+      "*-south": 0,
+      "*-west": 270
     }
   },
   "resistance": 2,

@@ -7,12 +7,12 @@ namespace woodenfortifications
 {
     public class BlockEntity_StackablePalisade : BlockEntity
     {
+        private const string TOP_CODE = "top";
+        private const string MID_CODE = "base";
+        
         public virtual bool OnPlayerInteract(IPlayer byPlayer)
         {
-            string baseCode = Block.CodeWithoutParts(10);
-            
-            // Get base block
-            BlockEntity baseBlock = GetBaseBlock(Pos, baseCode);
+            string baseCode = Block.FirstCodePart();
             
             // Is held item equal to the base item being interacted with?
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
@@ -20,24 +20,28 @@ namespace woodenfortifications
             if (hotbarSlot.Empty) return false;
             
             Block hotbarBlock = hotbarSlot.Itemstack.Block;
-            bool equalStack = hotbarBlock != null && hotbarBlock.CodeWithoutParts(10) == baseBlock.Block.CodeWithoutParts(10);
+            if (hotbarBlock == null) return false;
+            
+            bool equalStack = hotbarBlock.FirstCodePart() == Block.FirstCodePart();
             
             if (equalStack)
             {
-                IncreaseStack(baseCode, hotbarSlot, byPlayer, baseBlock);
+                IncreaseStack(baseCode, hotbarSlot, byPlayer);
                 return true;
             }
             
             return false;
         }
 
-        private bool IncreaseStack(string baseCode, ItemSlot hotbarSlot, IPlayer byPlayer, BlockEntity baseBlock)
+        private bool IncreaseStack(string baseCode, ItemSlot hotbarSlot, IPlayer byPlayer)
         {
-            BlockEntity topBlock = GetTopBlock(Pos, baseCode);
-            BlockPos aboveTopPos = topBlock.Pos.UpCopy();
+            BlockPos basePos = GetBaseBlockPos(Pos);
+            BlockPos topPos = GetTopBlockPos(Pos);
+            
+            BlockPos aboveTopPos = topPos.UpCopy();
             BlockEntity aboveBlock = Api.World.BlockAccessor.GetBlockEntity(aboveTopPos);
 
-            if (topBlock.Pos.Y - baseBlock.Pos.Y >= 4) return false;
+            if (topPos.Y - basePos.Y >= 4) return false;
             
             // Check if the block above is replaceable by the block being placed
             if (aboveBlock != null && !aboveBlock.Block.IsReplacableBy(Block)) return false;
@@ -53,30 +57,33 @@ namespace woodenfortifications
             if (Api.World is IServerWorldAccessor)
             {
                 // Duplicate base up to top
-                BlockPos currPos = baseBlock.Pos;
+                string variant = Block.LastCodePart();
+                
+                string midCode = $"woodenfortifications:{baseCode}-{MID_CODE}-{variant}";
+                Block midBlockType = Api.World.GetBlock(new AssetLocation(midCode));
+                
+                string topCode = $"woodenfortifications:{baseCode}-{TOP_CODE}-{variant}";
+                Block topBlockType = Api.World.GetBlock(new AssetLocation(topCode));
+                
+                BlockPos currPos = basePos.Copy();
                 while (currPos.Y < aboveTopPos.Y)
                 {
-                    if (Api.World.BlockAccessor.GetBlock(currPos).Code != baseBlock.Block.Code)
-                        Api.World.BlockAccessor.SetBlock(baseBlock.Block.Id, currPos); 
+                    if (Api.World.BlockAccessor.GetBlock(currPos).Code != midCode)
+                        Api.World.BlockAccessor.SetBlock(midBlockType.Id, currPos); 
                     
                     currPos = currPos.UpCopy();
                 }
                 
                 // set top
-                string variant = Block.CodeEndWithoutParts(10);
-
-                string newCode = "woodenfortifications:" + baseCode + "-top-" + variant;
-                
-                var newBlock = Api.World.GetBlock(newCode);
-                Api.World.BlockAccessor.SetBlock((ushort)newBlock.Id, currPos);
+                Api.World.BlockAccessor.SetBlock(topBlockType.Id, currPos);
             }
 
             return true;
         }
         
-        private BlockEntity GetBaseBlock(BlockPos pos, string blockBaseCode)
+        private BlockPos GetBaseBlockPos(BlockPos pos)
         {
-            BlockEntity baseBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+            BlockPos baseBlock = pos.Copy();
             while (true)
             {
                 pos = pos.DownCopy();
@@ -85,8 +92,8 @@ namespace woodenfortifications
                 if (nextBlock == null)
                     break;
 
-                if (nextBlock.Block.CodeWithoutParts(10) == blockBaseCode)
-                    baseBlock = nextBlock;
+                if (nextBlock.Block.FirstCodePart() == Block.FirstCodePart())
+                    baseBlock = nextBlock.Pos;
                 else
                     break;
             }
@@ -94,9 +101,9 @@ namespace woodenfortifications
             return baseBlock;
         }
 
-        private BlockEntity GetTopBlock(BlockPos pos, string blockBaseCode)
+        private BlockPos GetTopBlockPos(BlockPos pos)
         {
-            BlockEntity topBlock = Api.World.BlockAccessor.GetBlockEntity(pos);
+            BlockPos topBlock = pos.Copy();
             while (true)
             {
                 pos = pos.UpCopy();
@@ -105,8 +112,8 @@ namespace woodenfortifications
                 if (nextBlock == null)
                     break;
                 
-                if (nextBlock.Block.CodeWithoutParts(10) == blockBaseCode)
-                    topBlock = nextBlock;
+                if (nextBlock.Block.FirstCodePart() == Block.FirstCodePart())
+                    topBlock = nextBlock.Pos;
                 else
                     break;
             }

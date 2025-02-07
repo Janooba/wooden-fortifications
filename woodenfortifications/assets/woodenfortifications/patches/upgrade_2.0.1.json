@@ -1,0 +1,13 @@
+[
+  {
+    "file": "game:config/remaps.json",
+    "op": "addmerge",
+    "path": "/woodenfortifications:2.0.1",
+    "value": [
+      "/bir remapq woodenfortifications:palisadewall-base-north woodenfortifications:palisadewall-north force",
+      "/bir remapq woodenfortifications:palisadewall-base-east woodenfortifications:palisadewall-east force",
+      "/bir remapq woodenfortifications:palisadewall-base-south woodenfortifications:palisadewall-south force",
+      "/bir remapq woodenfortifications:palisadewall-base-west woodenfortifications:palisadewall-west force"
+    ]
+  }
+]

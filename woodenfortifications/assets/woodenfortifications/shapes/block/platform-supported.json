@@ -1,6 +1,6 @@
 {
 	"editor": {
-		"collapsedPaths": "Root/Cube49,Root/TopBracing/InerStake,Root/Bracing/OuterStake2/Rope16,Root/OuterStake1,Root/OuterStake2,Root/Bracing,Root/Bracing/OuterStake3,Root/Bracing/OuterStake4,Root/Bracing3,Root/Bracing2,Root/Bracing/OuterStake2/Rope18,Root/Cube60",
+		"collapsedPaths": "Root/Cube49,Root/Bracing2,Root/TopBracing/InerStake,Root/Bracing/OuterStake2/Rope16,Root/Bracing,Root/Bracing/OuterStake2/Rope18,Root/Bracing/OuterStake3,Root/Cube60,Root/Bracing/OuterStake4,Root/OuterStake1,Root/OuterStake2,Root/Bracing3",
 		"allAngles": true,
 		"entityTextureMode": false
 	},
@@ -16,7 +16,7 @@
 		{
 			"name": "SupportBeam1",
 			"from": [ 15.3, 21.17, 12.57 ],
-			"to": [ 18.5, 45.17, 15.77 ],
+			"to": [ 18.5, 37.67, 15.77 ],
 			"rotationOrigin": [ 1.6208, 24.7537, 12.5665 ],
 			"rotationX": -116.0,
 			"rotationY": 89.9802,
@@ -33,7 +33,7 @@
 				{
 					"name": "SupportBeam2",
 					"from": [ 0.0, 0.1, 9.5 ],
-					"to": [ 3.2, 24.1, 12.7 ],
+					"to": [ 3.2, 16.6, 12.7 ],
 					"rotationOrigin": [ -0.0024, 0.0995, 9.5 ],
 					"faces": {
 						"north": { "texture": "#aged2", "uv": [ 2.0, 1.0, 6.0, 15.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
@@ -47,7 +47,7 @@
 				{
 					"name": "Floorbeam1",
 					"from": [ 0.08, 0.63, -2.1 ],
-					"to": [ 5.08, 16.63, 3.6 ],
+					"to": [ 5.08, 16.63, 2.9 ],
 					"rotationOrigin": [ 0.0844, 0.5526, -1.6 ],
 					"rotationX": -90.0,
 					"rotationY": 4.0,
@@ -63,11 +63,11 @@
 				},
 				{
 					"name": "Floorbeam2",
-					"from": [ -4.42, 6.15, -1.6 ],
-					"to": [ 1.28, 22.15, 3.4 ],
-					"rotationOrigin": [ -4.4156, 6.0526, -1.6 ],
+					"from": [ -4.82, 5.65, -1.6 ],
+					"to": [ 0.18, 21.65, 3.4 ],
+					"rotationOrigin": [ -4.8156, 5.5526, -1.6 ],
 					"rotationX": -90.0,
-					"rotationY": 84.0,
+					"rotationY": 88.0,
 					"rotationZ": -180.0,
 					"faces": {
 						"north": { "texture": "#aged2", "uv": [ 0.5, 1.5, 7.0, 16.0 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
@@ -80,9 +80,9 @@
 				},
 				{
 					"name": "Floorbeam3",
-					"from": [ 0.0837, 12.25, -1.6 ],
-					"to": [ 5.0837, 28.25, 4.1 ],
-					"rotationOrigin": [ 0.0844, 12.1526, -1.6 ],
+					"from": [ 0.0837, 10.85, -1.6 ],
+					"to": [ 5.0837, 26.85, 3.4 ],
+					"rotationOrigin": [ 0.0844, 10.7526, -1.6 ],
 					"rotationX": -90.0,
 					"rotationY": 3.0,
 					"rotationZ": -180.0,
@@ -96,26 +96,9 @@
 					}
 				},
 				{
-					"name": "Floorbeam4",
-					"from": [ -4.32, 18.15, -1.65 ],
-					"to": [ 1.38, 34.15, 3.35 ],
-					"rotationOrigin": [ -4.3156, 18.1526, -1.6 ],
-					"rotationX": -90.0,
-					"rotationY": 89.8,
-					"rotationZ": -180.0,
-					"faces": {
-						"north": { "texture": "#aged2", "uv": [ 1.5, 0.5, 6.5, 16.0 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
-						"east": { "texture": "#aged2", "uv": [ 1.0, 1.0, 7.0, 15.0 ], "autoUv": false },
-						"south": { "texture": "#aged2", "uv": [ 1.0, 1.0, 7.5, 15.0 ], "autoUv": false },
-						"west": { "texture": "#aged2", "uv": [ 0.5, 0.5, 7.0, 16.0 ], "autoUv": false },
-						"up": { "texture": "#aged3", "uv": [ 1.5, 2.0, 6.0, 6.0 ], "autoUv": false },
-						"down": { "texture": "#aged3", "uv": [ 14.5, 1.5, 9.0, 6.0 ], "autoUv": false }
-					}
-				},
-				{
 					"name": "SupportBeam3",
 					"from": [ 0.0, 2.1, 9.4 ],
-					"to": [ 3.2, 31.1, 12.6 ],
+					"to": [ 3.2, 21.4, 12.6 ],
 					"rotationOrigin": [ -0.0024, 2.0995, 9.4 ],
 					"rotationZ": -35.0,
 					"faces": {
@@ -130,7 +113,7 @@
 						{
 							"name": "SupportBeam4",
 							"from": [ 0.0, 0.0, -9.3 ],
-							"to": [ 3.2, 29.0, -6.1 ],
+							"to": [ 3.2, 19.3, -6.1 ],
 							"rotationOrigin": [ -0.0024, -5.0E-4, -9.3 ],
 							"faces": {
 								"north": { "texture": "#aged2", "uv": [ 2.0, 1.0, 6.0, 15.5 ], "autoUv": false, "windMode": [-1,-1,-1,-1] },
@@ -143,10 +126,10 @@
 						},
 						{
 							"name": "SupportBeam5",
-							"from": [ -0.1878, 0.3532, 0.1 ],
-							"to": [ 3.0122, 25.3532, 3.3 ],
-							"rotationOrigin": [ -0.1902, 0.3527, 0.1 ],
-							"rotationX": -21.857,
+							"from": [ 0.01, 0.3532, 0.1 ],
+							"to": [ 2.81, 17.3532, 3.3 ],
+							"rotationOrigin": [ 0.0098, 0.3527, 0.1 ],
+							"rotationX": -31.86,
 							"rotationY": 4.3946,
 							"rotationZ": -0.1164,
 							"faces": {
@@ -160,10 +143,10 @@
 						},
 						{
 							"name": "SupportBeam6",
-							"from": [ -0.1878, 0.3532, -9.3 ],
-							"to": [ 3.0122, 25.3532, -6.1 ],
-							"rotationOrigin": [ -0.1902, 0.3527, -9.3 ],
-							"rotationX": 21.9439,
+							"from": [ 0.11, 1.35, -9.4 ],
+							"to": [ 2.91, 18.35, -6.2 ],
+							"rotationOrigin": [ 0.1098, 1.3527, -9.4 ],
+							"rotationX": 34.94,
 							"rotationY": -4.351,
 							"rotationZ": -0.534,
 							"faces": {
