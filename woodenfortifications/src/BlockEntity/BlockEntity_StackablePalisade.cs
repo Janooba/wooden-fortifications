@@ -81,6 +81,10 @@ namespace woodenfortifications
                 // set top
                 Api.World.BlockAccessor.SetBlock(topBlockType.Id, currPos);
             }
+            else
+            {
+                Api.World.PlaySoundAt(Block.Sounds.Place, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);   
+            }
 
             return true;
         }

@@ -34,7 +34,8 @@
   ],
   "resistance": 2,
   "sounds": {
-    "place": "game:block/wood",
-    "walk": "game:walk/wood"
+    "place": "game:block/planks",
+    "walk": "game:walk/wood",
+    "break": "game:block/planks"
   }
 }
