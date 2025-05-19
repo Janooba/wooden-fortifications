@@ -4,8 +4,8 @@
   "height": 3,
   "ingredients":
   {
-    "W": { "type": "block", "code": "game:log-*"},
-    "A": { "type": "item", "code": "game:axe-*", "isTool": true }
+    "W": { "type": "block", "code": "*:log-*"},
+    "A": { "type": "item", "code": "*:axe-*", "isTool": true }
   },
   "output":
   {
