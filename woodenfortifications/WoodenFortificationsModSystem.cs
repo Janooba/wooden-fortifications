@@ -9,6 +9,7 @@ namespace woodenfortifications;
 public class WoodenFortificationsModSystem : ModSystem
 {
     public static WoodenFortificationsConfig Config;
+    public const string NAMESPACE = "woodenfortifications";
     
     // Called on server and client
     // Useful for registering block/entity classes on both sides

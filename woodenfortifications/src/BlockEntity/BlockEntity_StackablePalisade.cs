@@ -35,16 +35,36 @@ namespace woodenfortifications
 
         private bool IncreaseStack(string baseCode, ItemSlot hotbarSlot, IPlayer byPlayer)
         {
+            // Get codes
+            string variant = $"-{Block.LastCodePart()}";
+                
+            // If there is no rotation code, dont add it to the variant
+            if (variant == $"-{MID_CODE}") variant = "";
+            if (variant == $"-{TOP_CODE}") variant = "";
+                
+            string midCode = $"woodenfortifications:{baseCode}-{MID_CODE}{variant}";
+            Block midBlockType = Api.World.GetBlock(new AssetLocation(midCode));
+                
+            string topCode = $"woodenfortifications:{baseCode}-{TOP_CODE}{variant}";
+            Block topBlockType = Api.World.GetBlock(new AssetLocation(topCode));
+            
+            // Get positions
             BlockPos basePos = GetBaseBlockPos(Pos);
             BlockPos topPos = GetTopBlockPos(Pos);
             
             BlockPos aboveTopPos = topPos.UpCopy();
             BlockEntity aboveBlock = Api.World.BlockAccessor.GetBlockEntity(aboveTopPos);
 
-            if (topPos.Y - basePos.Y >= WoodenFortificationsModSystem.Config.MaxPalisadeHeight - 1) return false;
+            if (topPos.Y - basePos.Y >= WoodenFortificationsModSystem.Config.MaxPalisadeHeight - 1)
+                return false;
             
             // Check if the block above is replaceable by the block being placed
-            if (aboveBlock != null && !aboveBlock.Block.IsReplacableBy(Block)) return false;
+            if (aboveBlock != null && !aboveBlock.Block.IsReplacableBy(Block))
+                return false;
+            
+            // Check if the block above the top is replaceable by the top block type
+            if (!Api.World.BlockAccessor.GetBlock(aboveTopPos).IsReplacableBy(topBlockType))
+                return false;
 
             if (hotbarSlot.Itemstack == null) return false;
 
@@ -57,18 +77,6 @@ namespace woodenfortifications
             if (Api.World is IServerWorldAccessor)
             {
                 // Duplicate base up to top
-                string variant = $"-{Block.LastCodePart()}";
-                
-                // If there is no rotation code, dont add it to the variant
-                if (variant == $"-{MID_CODE}") variant = "";
-                if (variant == $"-{TOP_CODE}") variant = "";
-                
-                string midCode = $"woodenfortifications:{baseCode}-{MID_CODE}{variant}";
-                Block midBlockType = Api.World.GetBlock(new AssetLocation(midCode));
-                
-                string topCode = $"woodenfortifications:{baseCode}-{TOP_CODE}{variant}";
-                Block topBlockType = Api.World.GetBlock(new AssetLocation(topCode));
-                
                 BlockPos currPos = basePos.Copy();
                 while (currPos.Y < aboveTopPos.Y)
                 {
