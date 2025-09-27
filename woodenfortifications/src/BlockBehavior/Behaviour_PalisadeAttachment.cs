@@ -11,9 +11,12 @@ public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
     
     public Behaviour_PalisadeAttachment(Block block) : base(block) { }
     
-    public BlockFacing GetAttachedBlockFace(Block aimedBlock)
+    public BlockFacing GetAttachedBlockFace(BlockSelection selection)
     {
-        return BlockFacing.FromCode(aimedBlock.LastCodePart());
+        if (selection.Block.FirstCodePart() == "palisadewall")
+            return BlockFacing.FromCode(selection.Block.LastCodePart());
+        else 
+            return selection.Face;
     }
 
     public override void OnNeighbourBlockChange(IWorldAccessor world, BlockPos pos, BlockPos neibpos, ref EnumHandling handled)
@@ -31,7 +34,8 @@ public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
     {
         handling = EnumHandling.PreventDefault;
 
-        if (byPlayer.CurrentBlockSelection.Block.FirstCodePart() != "palisadewall")
+        if (byPlayer.CurrentBlockSelection.Block.FirstCodePart() != "palisadewall" && 
+            byPlayer.CurrentBlockSelection.Block.FirstCodePart() != "palisadecorner")
             return false;
         
         // Prefer selected block face
@@ -50,7 +54,7 @@ public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
         BlockFacing oppositeFace = blockSel.Face.Opposite;
         BlockPos blockToAttachToPos = blockSel.Position.AddCopy(oppositeFace);
         
-        BlockFacing attachmentFace = GetAttachedBlockFace(player.CurrentBlockSelection.Block);
+        BlockFacing attachmentFace = GetAttachedBlockFace(player.CurrentBlockSelection);
         BlockPos attachingBlockPos = blockToAttachToPos.AddCopy(attachmentFace);
         
         Block orientedBlock = world.BlockAccessor.GetBlock(block.CodeWithParts(attachmentFace.Opposite.Code));
@@ -71,6 +75,6 @@ public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
         BlockFacing facing = BlockFacing.FromCode(block.LastCodePart());
         Block attachingblock = world.BlockAccessor.GetBlock(pos.AddCopy(facing));
 
-        return attachingblock.FirstCodePart() == "palisadewall";
+        return attachingblock.FirstCodePart() == "palisadewall" || attachingblock.FirstCodePart() == "palisadecorner";
     }
 }

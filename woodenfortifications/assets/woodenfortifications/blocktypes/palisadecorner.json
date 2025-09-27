@@ -10,22 +10,21 @@
   ],
   "creativeinventory": { "general": ["palisadecorner-top"] },
   "drops": [
-    { "type": "block", "block": "woodenfortifications:palisadecorner-top" }
+    { "type": "block", "code": "woodenfortifications:palisadecorner-top" }
   ],
   "blockmaterial": "Wood",
   "drawtype": "json",
-  "shape": { "base": "block/vertical-corner-{piece}", "rotateY": 180 },
+  "shape": { "base": "block/vertical-corner-{piece}" },
   "sidesolid": { "all": true },
   "sideopaque": { "all": false },
-  "sideao": { "all": false },
-  "emitsideao": { "all": false },
   "collisionSelectionBoxByType": {
     "*-base": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 1, "z2": 1 },
     "*-top": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 1.2, "z2": 1 }
   },
   "resistance": 2,
   "sounds": {
-    "place": "game:block/wood",
-    "walk": "game:walk/wood"
+    "place": "game:block/planks",
+    "walk": "game:walk/wood",
+    "break": "game:block/planks"
   }
 }
