@@ -91,7 +91,7 @@ namespace woodenfortifications
             }
             else
             {
-                Api.World.PlaySoundAt(Block.Sounds.Place, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);   
+                Api.World.PlaySoundAt(Block.Sounds.Place, Pos.X + 0.5, (double)Pos.InternalY, Pos.Z + 0.5, 0, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f);
             }
 
             return true;
