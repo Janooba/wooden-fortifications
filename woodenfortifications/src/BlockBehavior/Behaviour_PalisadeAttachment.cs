@@ -7,8 +7,6 @@ namespace woodenfortifications;
 
 public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
 {
-    Dictionary<string, Cuboidi> attachmentAreas;
-    
     public Behaviour_PalisadeAttachment(Block block) : base(block) { }
     
     public BlockFacing GetAttachedBlockFace(BlockSelection selection)

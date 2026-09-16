@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
@@ -7,8 +8,11 @@ namespace woodenfortifications
 {
     public class Block_ArchersStake : Block
     {
+        private const long HitCooldownMs = 1000;
+
         private int _damage;
         private bool _damageFromSide;
+        private readonly Dictionary<long, long> _lastHitMsByEntityId = new();
 
         public override void OnLoaded(ICoreAPI api)
         {
@@ -38,31 +42,33 @@ namespace woodenfortifications
         public override void OnEntityCollide(IWorldAccessor world, Entity entity, BlockPos pos, BlockFacing facing, Vec3d collideSpeed, bool isImpact)
         {
             if (!isImpact && entity is EntityPlayer) return;
+            if (world.Side != EnumAppSide.Server) return;
 
             var blockDirection = BlockFacing.FromCode(LastCodePart());
 
             bool shouldDamage = facing == BlockFacing.UP;
-            if (_damageFromSide && facing != blockDirection.Opposite)
+            if (_damageFromSide && facing != blockDirection)
             {
                 shouldDamage = true;
             }
-            
-            if (shouldDamage)
-            {
-                if (world.Side == EnumAppSide.Server)
-                {
-                    var damaged = entity.ReceiveDamage(new DamageSource 
-                        {
-                            Source = EnumDamageSource.Block, SourceBlock = this,
-                            Type = EnumDamageType.PiercingAttack,
-                            SourcePos = pos.ToVec3d()
-                        }, _damage);
 
-                    if (damaged)
-                    {
-                        (world.BlockAccessor.GetBlockEntity(pos) as BlockEntity_Spike)?.TakeDamage(1);
-                    }
-                }
+            if (!shouldDamage) return;
+
+            long nowMs = world.ElapsedMilliseconds;
+            if (_lastHitMsByEntityId.TryGetValue(entity.EntityId, out long lastHitMs) && nowMs - lastHitMs < HitCooldownMs) return;
+            _lastHitMsByEntityId[entity.EntityId] = nowMs;
+
+            var damaged = entity.ReceiveDamage(new DamageSource
+                {
+                    Source = EnumDamageSource.Block, SourceBlock = this,
+                    Type = EnumDamageType.PiercingAttack,
+                    SourcePos = pos.ToVec3d(),
+                    IgnoreInvFrames = !(entity is EntityPlayer)
+                }, _damage);
+
+            if (damaged)
+            {
+                (world.BlockAccessor.GetBlockEntity(pos) as BlockEntity_Spike)?.TakeDamage(1);
             }
         }
     }

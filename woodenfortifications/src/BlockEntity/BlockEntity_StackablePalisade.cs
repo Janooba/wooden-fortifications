@@ -44,10 +44,12 @@ namespace woodenfortifications
                 
             string midCode = $"woodenfortifications:{baseCode}-{MID_CODE}{variant}";
             Block midBlockType = Api.World.GetBlock(new AssetLocation(midCode));
-                
+
             string topCode = $"woodenfortifications:{baseCode}-{TOP_CODE}{variant}";
             Block topBlockType = Api.World.GetBlock(new AssetLocation(topCode));
-            
+
+            if (midBlockType == null || topBlockType == null) return false;
+
             // Get positions
             BlockPos basePos = GetBaseBlockPos(Pos);
             BlockPos topPos = GetTopBlockPos(Pos);
