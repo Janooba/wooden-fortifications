@@ -1,0 +1,29 @@
+{
+  "ingredientPattern": "S,W",
+  "width": 1,
+  "height": 2,
+  "ingredients":
+  {
+    "S": {
+      "type": "item",
+      "code": "game:spearhead-*",
+      "name": "metal",
+      "allowedVariants": [
+        "game:spearhead-copper",
+        "game:spearhead-bismuthbronze",
+        "game:spearhead-tinbronze",
+        "game:spearhead-blackbronze",
+        "game:spearhead-iron",
+        "game:spearhead-meteoriciron",
+        "game:spearhead-steel"
+      ]
+    },
+    "W": { "type": "block", "code": "archersstake-north"}
+  },
+  "output":
+  {
+    "type": "block",
+    "code": "archersmetalstake-{metal}-north",
+    "quantity": 1
+  }
+}

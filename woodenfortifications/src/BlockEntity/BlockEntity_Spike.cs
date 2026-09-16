@@ -13,14 +13,18 @@ namespace woodenfortifications
         {
             base.Initialize(api);
             
-            _maxHealth = Block?.Attributes["hit_points"]?.AsInt(25) ?? 25;
+            _maxHealth = (Block as Block_ArchersStake)?.MaxHealth ?? Block?.Attributes["hit_points"]?.AsInt(25) ?? 25;
             if (Health == 0) Health = _maxHealth;
         }
 
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
         {
             base.GetBlockInfo(forPlayer, dsc);
-            dsc.AppendLine($"{Health}/{_maxHealth}");
+
+            if ((Block as Block_ArchersStake)?.IsIndestructible != true)
+            {
+                dsc.AppendLine($"{Health}/{_maxHealth}");
+            }
         }
         
         public override void ToTreeAttributes(ITreeAttribute tree)

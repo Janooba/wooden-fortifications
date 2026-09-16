@@ -1,0 +1,13 @@
+[
+  {
+    "file": "game:config/remaps.json",
+    "op": "addmerge",
+    "path": "/woodenfortifications:2.1.0",
+    "value": [
+      "/bir remapq woodenfortifications:archerscopperstake-north woodenfortifications:archersmetalstake-copper-north force",
+      "/bir remapq woodenfortifications:archerscopperstake-east woodenfortifications:archersmetalstake-copper-east force",
+      "/bir remapq woodenfortifications:archerscopperstake-south woodenfortifications:archersmetalstake-copper-south force",
+      "/bir remapq woodenfortifications:archerscopperstake-west woodenfortifications:archersmetalstake-copper-west force"
+    ]
+  }
+]

@@ -1,6 +1,12 @@
 ﻿{
   "block-archersstake-*": "Archer's Stake",
-  "block-archerscopperstake-*": "Archer's Copper Spears",
+  "block-archersmetalstake-copper-*": "Copper Archer's Stake",
+  "block-archersmetalstake-bismuthbronze-*": "Bismuth Bronze Archer's Stake",
+  "block-archersmetalstake-tinbronze-*": "Tin Bronze Archer's Stake",
+  "block-archersmetalstake-blackbronze-*": "Black Bronze Archer's Stake",
+  "block-archersmetalstake-iron-*": "Iron Archer's Stake",
+  "block-archersmetalstake-meteoriciron-*": "Meteoric Iron Archer's Stake",
+  "block-archersmetalstake-steel-*": "Steel Archer's Stake",
   "block-palisadewall-*": "Palisade Wall",
   "block-palisadecorner-*": "Palisade Corner",
   "block-palisadewalkway-*": "Palisade Walkway",
