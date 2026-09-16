@@ -8,11 +8,13 @@
         - Iron, meteoric iron, and steel archer's stakes are indestructible.
     - Added a config option to disable stake durability entirely.
     - Merged the copper archer's stake into the new metal stake line; existing copper stakes migrate automatically.
+    - Added new variant of walkway so it can be added to both sides of a palisade wall.
 
     **Fixes**
     - Fixed archer's stakes not dealing damage when hit from the front.
     - Fixed missing handle/string textures on the copper archer's stake.
     - Fixed a potential crash when stacking palisade blocks with a missing variant.
+    - Light creatures do not take or deal damage to the stakes.
 
 ## v2.0.11
     - Fix broken call to changed API causing crash
