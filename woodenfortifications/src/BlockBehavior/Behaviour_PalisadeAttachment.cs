@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
@@ -8,17 +9,22 @@ public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
 {
     public Behaviour_PalisadeAttachment(Block block) : base(block) { }
 
-    // always drop the "near" reach variant, regardless of which reach variant broke
+    // always drop the "near" reach variant facing "north", regardless of the broken block's reach and side
     public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, ref float dropChanceMultiplier, ref EnumHandling handling)
     {
         string reach = block.Variant["reach"];
-        if (reach == null || reach == "near") return null;
+        string side = block.Variant["side"];
+        if (reach == null || side == null) return null;
+        if (reach == "near" && side == "north") return null;
 
-        Block nearBlock = world.BlockAccessor.GetBlock(block.CodeWithVariant("reach", "near"));
-        if (nearBlock == null) return null;
+        Block dropBlock = world.BlockAccessor.GetBlock(block.CodeWithVariants(new Dictionary<string, string> {
+            { "reach", "near" },
+            { "side", "north" }
+        }));
+        if (dropBlock == null) return null;
 
         handling = EnumHandling.PreventDefault;
-        return new ItemStack[] { new ItemStack(nearBlock) };
+        return new ItemStack[] { new ItemStack(dropBlock) };
     }
 
     // use the "far" reach variant on the inner side of the wall
