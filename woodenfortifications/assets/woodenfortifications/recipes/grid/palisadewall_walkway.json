@@ -9,7 +9,7 @@
   "output":
   {
     "type": "block",
-    "code": "palisadewalkway-north",
+    "code": "palisadewalkway-near-north",
     "quantity": 2
   }
 }

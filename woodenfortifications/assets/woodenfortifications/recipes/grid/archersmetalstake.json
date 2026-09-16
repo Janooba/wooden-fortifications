@@ -9,13 +9,13 @@
       "code": "game:spearhead-*",
       "name": "metal",
       "allowedVariants": [
-        "game:spearhead-copper",
-        "game:spearhead-bismuthbronze",
-        "game:spearhead-tinbronze",
-        "game:spearhead-blackbronze",
-        "game:spearhead-iron",
-        "game:spearhead-meteoriciron",
-        "game:spearhead-steel"
+        "copper",
+        "bismuthbronze",
+        "tinbronze",
+        "blackbronze",
+        "iron",
+        "meteoriciron",
+        "steel"
       ]
     },
     "W": { "type": "block", "code": "archersstake-north"}

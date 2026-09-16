@@ -5,18 +5,26 @@
   ],
   "variantgroups": [
     {
+      "code": "reach",
+      "states": ["near", "far"]
+    },
+    {
       "code": "side",
       "loadFromProperties": "abstract/horizontalorientation"
     }
   ],
-  "creativeinventory": { "general": ["palisadewalkway-north"] },
+  "creativeinventory": { "general": ["palisadewalkway-near-north"] },
   "blockmaterial": "Wood",
   "drawtype": "json",
   "shapeByType": {
-    "*-north": { "base": "block/platform-supported", "rotateY": 0 },
-    "*-east": { "base": "block/platform-supported", "rotateY": 270 },
-    "*-south": { "base": "block/platform-supported", "rotateY": 180 },
-    "*-west": { "base": "block/platform-supported", "rotateY": 90 }
+    "palisadewalkway-near-north": { "base": "block/platform-supported", "rotateY": 0 },
+    "palisadewalkway-near-east": { "base": "block/platform-supported", "rotateY": 270 },
+    "palisadewalkway-near-south": { "base": "block/platform-supported", "rotateY": 180 },
+    "palisadewalkway-near-west": { "base": "block/platform-supported", "rotateY": 90 },
+    "palisadewalkway-far-north": { "base": "block/platform-supported-far", "rotateY": 0 },
+    "palisadewalkway-far-east": { "base": "block/platform-supported-far", "rotateY": 270 },
+    "palisadewalkway-far-south": { "base": "block/platform-supported-far", "rotateY": 180 },
+    "palisadewalkway-far-west": { "base": "block/platform-supported-far", "rotateY": 90 }
   },
   "sidesolid": { "all": false, "up": true },
   "sideopaque": { "all": false },

@@ -25,6 +25,14 @@ namespace woodenfortifications
             base.OnNeighbourBlockChange(world, pos, neibpos);
         }
 
+        // one face of a palisade segment is marked solid (sidesolidByType)
+        public override bool CanAttachBlockAt(IBlockAccessor blockAccessor, Block block, BlockPos pos, BlockFacing blockFace, Cuboidi attachmentArea = null)
+        {
+            if (block.FirstCodePart() == "palisadewalkway") return true;
+
+            return base.CanAttachBlockAt(blockAccessor, block, pos, blockFace, attachmentArea);
+        }
+
         private bool IsSupported(IWorldAccessor world, BlockPos pos)
         {
             Block belowBlock = world.BlockAccessor.GetBlock(pos.DownCopy());

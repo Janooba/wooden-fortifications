@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
@@ -8,71 +7,47 @@ namespace woodenfortifications;
 public class Behaviour_PalisadeAttachment : BlockBehaviorHorizontalAttachable
 {
     public Behaviour_PalisadeAttachment(Block block) : base(block) { }
-    
-    public BlockFacing GetAttachedBlockFace(BlockSelection selection)
-    {
-        if (selection.Block.FirstCodePart() == "palisadewall")
-            return BlockFacing.FromCode(selection.Block.LastCodePart());
-        else 
-            return selection.Face;
-    }
 
-    public override void OnNeighbourBlockChange(IWorldAccessor world, BlockPos pos, BlockPos neibpos, ref EnumHandling handled)
+    // always drop the "near" reach variant, regardless of which reach variant broke
+    public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, ref float dropChanceMultiplier, ref EnumHandling handling)
     {
-        handled = EnumHandling.PreventDefault;
+        string reach = block.Variant["reach"];
+        if (reach == null || reach == "near") return null;
 
-        if (!CanBlockStay(world, pos))
-        {
-            world.BlockAccessor.BreakBlock(pos, null);
-        }
-    }
+        Block nearBlock = world.BlockAccessor.GetBlock(block.CodeWithVariant("reach", "near"));
+        if (nearBlock == null) return null;
 
-    public override bool TryPlaceBlock(IWorldAccessor world, IPlayer byPlayer, ItemStack itemstack, BlockSelection blockSel,
-        ref EnumHandling handling, ref string failureCode)
-    {
         handling = EnumHandling.PreventDefault;
-
-        if (byPlayer.CurrentBlockSelection.Block.FirstCodePart() != "palisadewall" && 
-            byPlayer.CurrentBlockSelection.Block.FirstCodePart() != "palisadecorner")
-            return false;
-        
-        // Prefer selected block face
-        if (blockSel.Face.IsHorizontal)
-        {
-            if (TryAttachTo(world, byPlayer, blockSel, itemstack, ref failureCode)) return true;
-        }
-
-        failureCode = "requirehorizontalattachable";
-
-        return false;
-    }
-    
-    protected bool TryAttachTo(IWorldAccessor world, IPlayer player, BlockSelection blockSel, ItemStack itemstack, ref string failureCode)
-    {
-        BlockFacing oppositeFace = blockSel.Face.Opposite;
-        BlockPos blockToAttachToPos = blockSel.Position.AddCopy(oppositeFace);
-        
-        BlockFacing attachmentFace = GetAttachedBlockFace(player.CurrentBlockSelection);
-        BlockPos attachingBlockPos = blockToAttachToPos.AddCopy(attachmentFace);
-        
-        Block orientedBlock = world.BlockAccessor.GetBlock(block.CodeWithParts(attachmentFace.Opposite.Code));
-
-        var modifiedSelection = blockSel.Clone();
-        modifiedSelection.Position = attachingBlockPos;
-        if (world.BlockAccessor.GetBlock(attachingBlockPos).IsReplacableBy(block))
-        {
-            orientedBlock.DoPlaceBlock(world, player, modifiedSelection, itemstack);
-            return true;
-        }
-
-        return false;
+        return new ItemStack[] { new ItemStack(nearBlock) };
     }
 
-    protected bool CanBlockStay(IWorldAccessor world, BlockPos pos)
+    // use the "far" reach variant on the inner side of the wall
+    public override void OnBlockPlaced(IWorldAccessor world, BlockPos blockPos, ref EnumHandling handling)
     {
-        BlockFacing facing = BlockFacing.FromCode(block.LastCodePart());
-        Block attachingblock = world.BlockAccessor.GetBlock(pos.AddCopy(facing));
+        base.OnBlockPlaced(world, blockPos, ref handling);
 
-        return attachingblock.FirstCodePart() == "palisadewall" || attachingblock.FirstCodePart() == "palisadecorner";
+        string side = block.Variant["side"];
+        string reach = block.Variant["reach"];
+        if (side == null || reach == null) return;
+
+        // "side" is the direction toward the wall (matches BlockBehaviorHorizontalAttachable's own CanBlockStay).
+        BlockFacing towardWall = BlockFacing.FromCode(side);
+        Block neighbor = world.BlockAccessor.GetBlock(blockPos.AddCopy(towardWall));
+        if (neighbor == null) return;
+
+        if (neighbor.FirstCodePart() != "palisadewall" && neighbor.FirstCodePart() != "palisadecorner") return;
+
+        string wallSide = neighbor.Variant["side"];
+        if (wallSide == null) return;
+
+        bool isFar = BlockFacing.FromCode(wallSide) == towardWall;
+        string correctReach = isFar ? "far" : "near";
+        if (reach == correctReach) return;
+
+        Block corrected = world.BlockAccessor.GetBlock(block.CodeWithVariant("reach", correctReach));
+        if (corrected != null)
+        {
+            world.BlockAccessor.ExchangeBlock(corrected.Id, blockPos);
+        }
     }
 }
